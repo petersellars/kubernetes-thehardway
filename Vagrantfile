@@ -69,7 +69,9 @@ Vagrant.configure("2") do |config|
   #   apt-get install -y apache2
   # SHELL
 
-  #config.vm.provision "shell", inline: <<-SHELL
-  #  
-  #SHELL
+  config.vm.provision "install-gcloudsdk", 
+    type: :shell, 
+    path: "provision/install_gcloudsdk.sh",
+    privileged: false 
+    
 end
