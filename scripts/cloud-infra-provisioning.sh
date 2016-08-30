@@ -46,3 +46,38 @@ gcloud compute firewall-rules list --filter "network=kubernetes"
 # Create the Kubernetes Public IP Address
 gcloud compute addresses create kubernetes --region us-central1
 gcloud compute addresses list kubernetes
+
+# Provision Virtual Machines
+
+# etcd
+gcloud compute instances create etcd0 \
+ --boot-disk-size 200GB \
+ --can-ip-forward \
+ --image ubuntu-1604-xenial-v20160627 \
+ --image-project ubuntu-os-cloud \
+ --machine-type n1-standard-1 \
+ --private-network-ip 10.240.0.10 \
+ --subnet kubernetes \
+ --zone us-central1-a
+
+gcloud compute instances create etcd1 \
+ --boot-disk-size 200GB \
+ --can-ip-forward \
+ --image ubuntu-1604-xenial-v20160627 \
+ --image-project ubuntu-os-cloud \
+ --machine-type n1-standard-1 \
+ --private-network-ip 10.240.0.11 \
+ --subnet kubernetes \
+ --zone us-central1-a
+
+gcloud compute instances create etcd2 \
+ --boot-disk-size 200GB \
+ --can-ip-forward \
+ --image ubuntu-1604-xenial-v20160627 \
+ --image-project ubuntu-os-cloud \
+ --machine-type n1-standard-1 \
+ --private-network-ip 10.240.0.12 \
+ --subnet kubernetes \
+ --zone us-central1-a
+
+gcloud compute instances list

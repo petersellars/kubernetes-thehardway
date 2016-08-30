@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Delete Virtual Machines
+gcloud compute instances delete \
+  etcd0 etcd1 etcd2 \
+  --zone us-central1-a \
+  --quiet
+
 # Delete Kubernetes Public IP Address
 gcloud compute addresses delete kubernetes --region us-central1 --quiet
 
