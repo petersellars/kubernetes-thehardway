@@ -2,6 +2,8 @@
 
 # Delete Virtual Machines
 gcloud compute instances delete \
+  worker0 worker1 worker2 \
+  controller0 controller1 controller2 \
   etcd0 etcd1 etcd2 \
   --zone us-central1-a \
   --quiet

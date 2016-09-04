@@ -81,3 +81,70 @@ gcloud compute instances create etcd2 \
  --zone us-central1-a
 
 gcloud compute instances list
+
+# Kubernetes Controllers
+gcloud compute instances create controller0 \
+  --boot-disk-size 200GB \
+  --can-ip-forward \
+  --image ubuntu-1604-xenial-v20160627 \
+  --image-project ubuntu-os-cloud \
+  --machine-type n1-standard-1 \
+  --private-network-ip 10.240.0.20 \
+  --subnet kubernetes \
+  --zone us-central1-a
+
+gcloud compute instances create controller1 \
+  --boot-disk-size 200GB \
+  --can-ip-forward \
+  --image ubuntu-1604-xenial-v20160627 \
+  --image-project ubuntu-os-cloud \
+  --machine-type n1-standard-1 \
+  --private-network-ip 10.240.0.21 \
+  --subnet kubernetes \
+  --zone us-central1-a
+
+gcloud compute instances create controller2 \
+  --boot-disk-size 200GB \
+  --can-ip-forward \
+  --image ubuntu-1604-xenial-v20160627 \
+  --image-project ubuntu-os-cloud \
+  --machine-type n1-standard-1 \
+  --private-network-ip 10.240.0.22 \
+  --subnet kubernetes \
+  --zone us-central1-a
+
+gcloud compute instances list
+
+# Kubernetes Workers
+gcloud compute instances create worker0 \
+  --boot-disk-size 200GB \
+  --can-ip-forward \
+  --image ubuntu-1604-xenial-v20160627 \
+  --image-project ubuntu-os-cloud \
+  --machine-type n1-standard-1 \
+  --private-network-ip 10.240.0.30 \
+  --subnet kubernetes \
+  --zone us-central1-a
+
+gcloud compute instances create worker1 \
+  --boot-disk-size 200GB \
+  --can-ip-forward \
+  --image ubuntu-1604-xenial-v20160627 \
+  --image-project ubuntu-os-cloud \
+  --machine-type n1-standard-1 \
+  --private-network-ip 10.240.0.31 \
+  --subnet kubernetes \
+  --zone us-central1-a
+
+gcloud compute instances create worker2 \
+  --boot-disk-size 200GB \
+  --can-ip-forward \
+  --image ubuntu-1604-xenial-v20160627 \
+  --image-project ubuntu-os-cloud \
+  --machine-type n1-standard-1 \
+  --private-network-ip 10.240.0.32 \
+  --subnet kubernetes \
+  --zone us-central1-a
+
+gcloud compute instances list
+
