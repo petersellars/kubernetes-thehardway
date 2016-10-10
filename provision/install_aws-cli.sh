@@ -9,5 +9,8 @@ sudo python2.7 get-pip.py
 sudo pip install awscli
 sudo pip install aws-shell
 
+# Install jq tool
+sudo apt install jq
+
 # Configure AWS
 # aws configure
